@@ -1,18 +1,19 @@
 <div class="sticky">
   <hr>
   <div class="row" style="padding-left:10px;padding-top:10px;margin-top:-10px;text-align:center;background:#242424;">
+    <div class="col-1"></div>
     <div class="col-2">
       <a href="index.php">
       <img id="home" src="img/star.png" alt="" style="width:35px;margin-left: -2px;">
       <font style="font-weight:600;color:#fff;font-size:10px">HOME</font>
       </a>
     </div>
-    <div class="col-2">
+    <!-- <div class="col-2">
        <a href="user.php">
        <img id="user" src="img/manager.png" alt="" style="width:35px">
        <font style="font-weight:600;color:#fff;font-size:10px">USER</font>
        </a>
-    </div>
+    </div> -->
     <div class="col-2">
        <a href="tool.php">
       <img id="tool" src="img/construction-and-tools.png" alt="" style="width:35px">
@@ -37,6 +38,7 @@
       <font style="font-weight:600;color:#fff;font-size:10px">LOGOUT</font>
       </a>
     </div>
+    <div class="col-1"></div>
   </div>
 </div>
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
@@ -82,5 +84,23 @@
       });
     });
     </script> -->
+    <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    </script>
   </body>
 </html>

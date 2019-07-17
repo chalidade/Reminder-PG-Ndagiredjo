@@ -25,11 +25,34 @@
 					new Chart(document.getElementById("pie-chart"), {
 					type: 'pie',
 					data: {
-					  labels: ["Aktif", "Warning", "Kadaluarsa"],
+					  labels: ["Kadaluarsa", "Habis Bulan Ini", "Kurang Satu Bulan", "Aktif"],
 					  datasets: [{
 					    label: "Sertifikasi Alat",
-					    backgroundColor: ["#0bb84e", "#d7d205", "#d70505"],
-					    data: [85,5,10]
+					    backgroundColor: ["#d70505",  "#d7d205", "#ff840c", "#0bb84e"],
+					    data: [
+								<?php
+								 	$a 					= mysqli_query($connect, "SELECT count(`status`) FROM `peralatan` WHERE `status` = '3' ");
+									while ($a 	= mysqli_fetch_row($a)) {
+									$deadline		= $a[0];
+
+									$b 					= mysqli_query($connect, "SELECT count(`status`) FROM `peralatan` WHERE `status` = '2' ");
+									while ($b 	= mysqli_fetch_row($b)) {
+									$ini				= $b[0];
+
+									$c 					= mysqli_query($connect, "SELECT count(`status`) FROM `peralatan` WHERE `status` = '1' ");
+									while ($c 	= mysqli_fetch_row($c)) {
+									$kurang 		= $c[0];
+
+									$d 					= mysqli_query($connect, "SELECT count(`status`) FROM `peralatan` WHERE `status` = '0' ");
+									while ($d 	= mysqli_fetch_row($d)) {
+									$aman 	 		= $d[0];
+												echo "$deadline, $ini, $kurang, $aman";
+												}
+											}
+										}
+									}
+								 ?>
+							]
 					  }]
 					},
 					options: {
@@ -43,11 +66,34 @@
 					new Chart(document.getElementById("pie-chart1"), {
 					type: 'pie',
 					data: {
-					  labels: ["Aktif", "Warning", "Kadaluarsa"],
+					  labels: ["Kadaluarsa", "Habis Bulan Ini", "Kurang Satu Bulan", "Aktif"],
 					  datasets: [{
-					    label: "Sertifikasi SDM",
-					    backgroundColor: ["#0bb84e", "#d7d205", "#d70505"],
-					    data: [60,30,10]
+					    label: "Sertifikasi Alat",
+					    backgroundColor: ["#d70505",  "#d7d205", "#ff840c", "#0bb84e"],
+					    data: [
+								<?php
+								 	$a 					= mysqli_query($connect, "SELECT count(`status`) FROM `SDM` WHERE `status` = '3' ");
+									while ($a 	= mysqli_fetch_row($a)) {
+									$deadline		= $a[0];
+
+									$b 					= mysqli_query($connect, "SELECT count(`status`) FROM `SDM` WHERE `status` = '2' ");
+									while ($b 	= mysqli_fetch_row($b)) {
+									$ini				= $b[0];
+
+									$c 					= mysqli_query($connect, "SELECT count(`status`) FROM `SDM` WHERE `status` = '1' ");
+									while ($c 	= mysqli_fetch_row($c)) {
+									$kurang 		= $c[0];
+
+									$d 					= mysqli_query($connect, "SELECT count(`status`) FROM `SDM` WHERE `status` = '0' ");
+									while ($d 	= mysqli_fetch_row($d)) {
+									$aman 	 		= $d[0];
+												echo "$deadline, $ini, $kurang, $aman";
+												}
+											}
+										}
+									}
+								 ?>
+							]
 					  }]
 					},
 					options: {
@@ -61,11 +107,34 @@
 					new Chart(document.getElementById("pie-chart2"), {
 					type: 'pie',
 					data: {
-					  labels: ["Aktif", "Warning", "Kadaluarsa"],
+					  labels: ["Kadaluarsa", "Habis Bulan Ini", "Kurang Satu Bulan", "Aktif"],
 					  datasets: [{
-					    label: "Sertifikasi Lingkungan",
-					    backgroundColor: ["#0bb84e", "#d7d205", "#d70505"],
-					    data: [90,5,5]
+					    label: "Sertifikasi Alat",
+					    backgroundColor: ["#d70505",  "#d7d205", "#ff840c", "#0bb84e"],
+					    data: [
+								<?php
+								 	$a 					= mysqli_query($connect, "SELECT count(`status`) FROM `lingkungan_kerja` WHERE `status` = '3' ");
+									while ($a 	= mysqli_fetch_row($a)) {
+									$deadline		= $a[0];
+
+									$b 					= mysqli_query($connect, "SELECT count(`status`) FROM `lingkungan_kerja` WHERE `status` = '2' ");
+									while ($b 	= mysqli_fetch_row($b)) {
+									$ini				= $b[0];
+
+									$c 					= mysqli_query($connect, "SELECT count(`status`) FROM `lingkungan_kerja` WHERE `status` = '1' ");
+									while ($c 	= mysqli_fetch_row($c)) {
+									$kurang 		= $c[0];
+
+									$d 					= mysqli_query($connect, "SELECT count(`status`) FROM `lingkungan_kerja` WHERE `status` = '0' ");
+									while ($d 	= mysqli_fetch_row($d)) {
+									$aman 	 		= $d[0];
+												echo "$deadline, $ini, $kurang, $aman";
+												}
+											}
+										}
+									}
+								 ?>
+							]
 					  }]
 					},
 					options: {

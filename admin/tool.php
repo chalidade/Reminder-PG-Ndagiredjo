@@ -34,18 +34,18 @@
           $bulanini        = date('Ym');
           $deadline        = date("Ym", strtotime($akhir));
 
-          echo "$bulanini - $deadline - $sebulansebelum<br>";
+          // echo "$bulanini - $deadline - $sebulansebelum<br>";
         ?>
         <?php
         if ($bulanini < $deadline && $bulanini == $sebulansebelum) {
          echo "<tr style='background:yellow;color:#000'>";
-         $status          = mysqli_query($connect, "UPDATE `lingkungan_kerja` SET `status` = '1' WHERE `lingkungan_kerja`.`no` = '$id';");
+         $status          = mysqli_query($connect, "UPDATE `peralatan` SET `status` = '1' WHERE `peralatan`.`no` = '$id';");
        } elseif ($bulanini == $deadline) {
          echo "<tr style='background:yellow;color:#000'>";
-         $status          = mysqli_query($connect, "UPDATE `lingkungan_kerja` SET `status` = '2' WHERE `lingkungan_kerja`.`no` = '$id';");
+         $status          = mysqli_query($connect, "UPDATE `peralatan` SET `status` = '2' WHERE `peralatan`.`no` = '$id';");
        } else if($bulanini > $deadline) {
          echo "<tr style='background:red;color:#fff'>";
-         $status          = mysqli_query($connect, "UPDATE `lingkungan_kerja` SET `status` = '3' WHERE `lingkungan_kerja`.`no` = '$id';");
+         $status          = mysqli_query($connect, "UPDATE `peralatan` SET `status` = '3' WHERE `peralatan`.`no` = '$id';");
        } else {
          echo "<tr>";
        }
@@ -71,7 +71,7 @@
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content">
+    <div class="modal-content" style="color:#000">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Detail Alat</h4>
