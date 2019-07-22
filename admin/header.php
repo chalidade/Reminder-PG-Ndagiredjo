@@ -120,34 +120,6 @@ include "proses/koneksi.php";
                   </td>
                 </tr>
               <?php } ?>
-              <?php
-              $m  = mysqli_query($connect, "SELECT * FROM `peralatan` WHERE `status` = '2'");
-              while ($tool1 = mysqli_fetch_array($m)) {
-               ?>
-              <tr>
-                <td width="12%">
-                  <img style="vertical-align: top;width:20px;" src="img/warning.png" alt="">
-                </td>
-                <td>
-                  <p style="color:#242424;font-size:11px;">
-                    Nama <?php echo $tool['nama_alat']; ?>, no ai <?php echo $tool['no_Ai']; ?> Sertifikasi bulan ini habis, <font color="red">Segera lakukan perpanjangan</font>
-                  </p>
-                </td>
-              </tr>
-            <?php } ?>
-            <?php
-            $l  = mysqli_query($connect, "SELECT * FROM `peralatan` WHERE `status` = '1'");
-            while ($tool2 = mysqli_fetch_array($l)) {
-             ?>
-            <tr>
-              <td width="12%">
-                <img style="vertical-align: top;width:20px;" src="img/warning.png" alt="">
-              </td>
-              <td>
-                Nama <?php echo $tool['nama_alat']; ?>, no ai <?php echo $tool['no_Ai']; ?> Sertifikasi habis bulan depan, <font color="red">Segera lakukan perpanjangan</font>
-              </td>
-            </tr>
-          <?php } ?>
               </table>
             </div>
 

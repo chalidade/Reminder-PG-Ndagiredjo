@@ -11,13 +11,20 @@
 							</div>
 						</div>
 						<div class="row" style="margin-top:50px; padding:10px">
-					    <canvas id="pie-chart" width="800" height="450"></canvas>
+					    <center style="width:500px">
+							<canvas id="pie-chart"></canvas>
 					    <p style="margin:10px;text-align:center">Data sertifikasi alat menunjukkan bahwa 85% sertifikasi masih aktif, 5% akan habis, 10% sudah kadaluarsa</p>
-					    <canvas id="pie-chart1" width="800" height="450"></canvas>
+						</center>
+
+						<center style="width:500px">
+							<canvas id="pie-chart1"></canvas>
 					    <p style="margin:10px;text-align:center">Data sertifikasi sdm menunjukkan bahwa 60% sertifikasi masih aktif, 30% akan habis, 10% sudah kadaluarsa</p>
-					    <canvas id="pie-chart2" width="800" height="450"></canvas>
+						</center>
+						
+						<center style="width:500px">
+							<canvas id="pie-chart2"></canvas>
 					    <p style="margin:10px;text-align:center">Data sertifikasi linkungan menunjukkan bahwa 90% sertifikasi masih aktif, 5% akan habis, 5% sudah kadaluarsa</p>
-					  </div>
+						</center>
 					</div>
 					</body>
 					<script src="js/Chart.js"></script>

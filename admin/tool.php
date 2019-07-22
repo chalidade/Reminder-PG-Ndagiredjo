@@ -27,8 +27,16 @@
         $a           = mysqli_query($connect, "SELECT * FROM `peralatan` ORDER BY `peralatan`.`batas_akhir` ASC ");
         while ($tool = mysqli_fetch_array($a)) {
           $id              = $tool['no'];
+
           $akhir           = $tool['batas_akhir'];
           $date            = strtotime($akhir);
+          $nama            = $tool['nama_alat'];
+          $stasiun         = $tool['stasiun'];
+          $keterangan      = $tool['keterangan'];
+          $no_ai           = $tool['no_ai'];
+          $akhir_periksa   = $tool['pemeriksaan_terakhir'];
+          $batas_akhir     = $tool['batas_akhir'];
+          $masa_berlaku    = $tool['masa_berlaku'];
           $newDate         = date("Y-m-d", strtotime("-1 month", $date));
           $sebulansebelum  = date("Ym", strtotime("-1 month", $date));
           $bulanini        = date('Ym');
@@ -51,7 +59,64 @@
        }
          ?>
           <td><?php echo $no;$no++; ?></td>
-          <td><a data-toggle="modal" data-target="#myModal"><?php echo $tool['nama_alat']; ?></a></td>
+          <td>
+            <a data-toggle="modal" data-target="#myModal<?php echo $id; ?>"><?php echo $tool['nama_alat']; ?></a>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal<?php echo $id; ?>" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content" style="color:#000">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Detail Alat</h4>
+                  </div>
+                  <div class="modal-body">
+                    <table>
+                      <tr>
+                        <td width="30%" style="vertical-align:top;">Nama Alat</td>
+                        <td width="1%" style="vertical-align:top;">:</td>
+                        <td><?php echo $nama; ?></td>
+                      </tr>
+                      <tr>
+                        <td>Stasiun</td>
+                        <td style="vertical-align:top;">:</td>
+                        <td> <?php echo $stasiun; ?></td>
+                      </tr>
+                      <tr>
+                        <td>Keterangan</td>
+                        <td style="vertical-align:top;">:</td>
+                        <td> <?php echo $keterangan; ?> </td>
+                      </tr>
+                      <tr>
+                        <td>No AI.</td>
+                        <td style="vertical-align:top;">:</td>
+                        <td> <?php echo $no_ai; ?> </td>
+                      </tr>
+                      <tr>
+                        <td>Pemeriksaan Terakhir </td>
+                        <td style="vertical-align:top;">:</td>
+                        <td> <?php echo $akhir_periksa; ?> </td>
+                      </tr>
+                      <tr>
+                        <td>Batas Perpanjangan </td>
+                        <td style="vertical-align:top;">:</td>
+                        <td> <?php echo $batas_akhir; ?></td>
+                      </tr>
+                      <tr>
+                        <td>Masa Berlaku</td>
+                        <td style="vertical-align:top;">:</td>
+                        <td> <?php echo $masa_berlaku; ?></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="perpanjang.php?id=peralatan&data=<?php echo $id ?>" class="btn btn-success" style="width:100%">Perpanjang Sertifikasi</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+          </td>
           <td><?php echo $tool['pemeriksaan_terakhir']; ?></td>
           <td>
             <?php
@@ -66,66 +131,6 @@
     </div>
   </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content" style="color:#000">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Detail Alat</h4>
-      </div>
-      <div class="modal-body">
-        <table>
-          <tr>
-            <td width="50%" style="vertical-align:top;">Nama Alat</td>
-            <td width="1%" style="vertical-align:top;">:</td>
-            <td> Over Head Travelling Crane 25T Area Penggilingan</td>
-          </tr>
-          <tr>
-            <td>Stasiun</td>
-            <td style="vertical-align:top;">:</td>
-            <td> Gilingan</td>
-          </tr>
-          <tr>
-            <td>Keterangan</td>
-            <td style="vertical-align:top;">:</td>
-            <td> Pesawat Angkat dan Angkut</td>
-          </tr>
-          <tr>
-            <td>No AI.</td>
-            <td style="vertical-align:top;">:</td>
-            <td> 566/135/418.54/IV/2015</td>
-          </tr>
-          <tr>
-            <td>Pemeriksaan Terakhir </td>
-            <td style="vertical-align:top;">:</td>
-            <td> 25/02/2015</td>
-          </tr>
-          <tr>
-            <td>Batas Perpanjangan </td>
-            <td style="vertical-align:top;">:</td>
-            <td> 25/02/2016</td>
-          </tr>
-          <tr>
-            <td>Masa Berlaku</td>
-            <td style="vertical-align:top;">:</td>
-            <td> 1 Tahun</td>
-          </tr>
-          <tr>
-            <td>Status</td>
-            <td style="vertical-align:top;">:</td>
-            <td>Kadaluarsa</td>
-          </tr>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal" style="width:100%">Perpanjang Sertifikasi</button>
-      </div>
-    </div>
-  </div>
-  </div>
 
   <div class="modal fade" id="tambahalat" role="dialog">
     <div class="modal-dialog">

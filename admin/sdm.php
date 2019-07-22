@@ -49,9 +49,9 @@
             ?>
             <td><?php echo $no;$no++; ?></td>
             <td>
-              <a data-toggle="modal" data-target="#myModal"><?php echo $sdm['nama']; ?> </a>
+              <a data-toggle="modal" data-target="#myModal<?php echo $sdm['no']; ?>"><?php echo $sdm['nama']; ?> </a>
               <!-- Modal -->
-              <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal fade" id="myModal<?php echo $sdm['no']; ?>" role="dialog">
                 <div class="modal-dialog">
 
                   <!-- Modal content-->
@@ -75,12 +75,12 @@
                         <tr>
                           <td>Berlaku</td>
                           <td style="vertical-align:top;">:</td>
-                          <td> <?php echo $sdm['berlaku']; ?></td>
+                          <td> <?php echo date("d/m/Y", strtotime($akhir)); ?></td>
                         </tr>
                       </table>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-success" data-dismiss="modal" style="width:100%">Perpanjang Sertifikasi</button>
+                      <a href="perpanjang.php?id=SDM&data=<?php echo $sdm['no']; ?>" class="btn btn-success" style="width:100%">Perpanjang Sertifikasi</a>
                     </div>
                   </div>
                 </div>

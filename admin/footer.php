@@ -1,19 +1,62 @@
 <div class="sticky">
   <hr>
   <div class="row" style="padding-left:10px;padding-top:10px;margin-top:-10px;text-align:center;background:#242424;">
-    <div class="col-1"></div>
+    <?php
+      session_start();
+      $jabatan = $_SESSION['jabatan'];
+      if($jabatan == "HSE") {
+     ?>
+    <div class="col-3">
+      <a href="index.php">
+      <img id="home" src="img/star.png" alt="" style="width:35px;margin-left: -2px;">
+      <font style="font-weight:600;color:#fff;font-size:10px">LAPORAN</font>
+      </a>
+    </div>
+    <div class="col-3">
+       <a href="tool.php">
+      <img id="tool" src="img/construction-and-tools.png" alt="" style="width:35px">
+      <font style="font-weight:600;color:#fff;font-size:10px">TOOLS</font>
+       </a>
+    </div>
+    <div class="col-3">
+       <a href="jadwal.php">
+      <img id="jadwal" src="img/calendar.png" alt="" style="width:35px;margin-left: 5px;">
+      <font style="font-weight:600;color:#fff;font-size:10px">JADWAL</font>
+       </a>
+    </div>
+    <div class="col-3">
+      <a href="../index.php">
+      <img src="img/keys.png" alt="" style="width:35px">
+      <font style="font-weight:600;color:#fff;font-size:10px">LOGOUT</font>
+      </a>
+    </div>
+  <?php } else if($jabatan == "SDM" ) { ?>
+    <div class="col-4">
+      <a href="index.php">
+      <img id="home" src="img/star.png" alt="" style="width:35px;margin-left: -2px;">
+      <font style="font-weight:600;color:#fff;font-size:10px">HOME</font>
+      </a>
+    </div>
+    <div class="col-4">
+       <a href="sdm.php">
+      <img id="sdm" src="img/constructor.png" alt="" style="width:35px">
+      <font style="font-weight:600;color:#fff;font-size:10px">SDM</font>
+       </a>
+    </div>
+    <div class="col-4">
+      <a href="../index.php">
+      <img src="img/keys.png" alt="" style="width:35px">
+      <font style="font-weight:600;color:#fff;font-size:10px">LOGOUT</font>
+      </a>
+    </div>
+  <?php   } else if($jabatan == "Manager") { ?>
+    <div class="col-1"> </div>
     <div class="col-2">
       <a href="index.php">
       <img id="home" src="img/star.png" alt="" style="width:35px;margin-left: -2px;">
       <font style="font-weight:600;color:#fff;font-size:10px">HOME</font>
       </a>
     </div>
-    <!-- <div class="col-2">
-       <a href="user.php">
-       <img id="user" src="img/manager.png" alt="" style="width:35px">
-       <font style="font-weight:600;color:#fff;font-size:10px">USER</font>
-       </a>
-    </div> -->
     <div class="col-2">
        <a href="tool.php">
       <img id="tool" src="img/construction-and-tools.png" alt="" style="width:35px">
@@ -22,7 +65,7 @@
     </div>
     <div class="col-2">
        <a href="sdm.php">
-      <img id="sdm" src="img/constructor.png" alt="" style="width:35px">
+      <img id="tool" src="img/construction-and-tools.png" alt="" style="width:35px">
       <font style="font-weight:600;color:#fff;font-size:10px">SDM</font>
        </a>
     </div>
@@ -38,7 +81,8 @@
       <font style="font-weight:600;color:#fff;font-size:10px">LOGOUT</font>
       </a>
     </div>
-    <div class="col-1"></div>
+    <div class="col-1"> </div>
+  <?php } ?>
   </div>
 </div>
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
